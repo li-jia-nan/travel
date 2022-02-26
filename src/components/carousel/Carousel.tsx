@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Carousel.module.css';
+import styles from './Carousel.module.scss';
 import { Image, Carousel as AntCarousel } from 'antd';
 
 import carouselImage1 from '../../assets/images/carousel_1.jpg';

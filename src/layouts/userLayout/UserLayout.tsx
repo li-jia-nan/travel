@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './UserLayout.module.css';
+import styles from './UserLayout.module.scss';
 import logo from '../../assets/logo.svg';
 import { Link } from 'react-router-dom';
 import { CaretDownOutlined } from '@ant-design/icons';
 import { Layout, Menu, Dropdown, Button } from 'antd';
 const { Header, Footer, Content } = Layout;
 
-export const UserLayout: React.FC = props => {
+export const UserLayout: React.FC = ({ children }) => {
   const menu = (
     <Menu>
       <Menu.Item>中文</Menu.Item>
@@ -35,7 +35,7 @@ export const UserLayout: React.FC = props => {
             </Link>
           </div>
           <div className={styles['desc']}>啦啦啦</div>
-          {props.children}
+          {children}
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Footer就不写了，太累了</Footer>

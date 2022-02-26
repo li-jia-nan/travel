@@ -1,7 +1,7 @@
 import React from 'react';
 import { Divider } from 'antd';
 import { Filter } from './Filter';
-import styles from './FilterArea.module.css';
+import styles from './FilterArea.module.scss';
 
 export const FilterArea: React.FC = () => {
   return (

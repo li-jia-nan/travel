@@ -1,23 +1,14 @@
-import React from "react";
-import {
-  Header,
-  Footer,
-  Carousel,
-  SideMenu,
-  ProductCollection,
-  BusinessPartners,
-} from "../../components";
-import { Row, Col, Typography, Spin } from "antd";
-import sideImage from "../../assets/images/sider_2019_12-09.png";
-import sideImage2 from "../../assets/images/sider_2019_02-04.png";
-import sideImage3 from "../../assets/images/sider_2019_02-04-2.png";
-import styles from "./HomePage.module.css";
-import { withTranslation, WithTranslation } from "react-i18next";
-import axios from "axios";
-import { connect } from "react-redux";
-import { RootState } from "../../redux/store";
-import { giveMeDataActionCreator } from "../../redux/recommendProducts/recommendProductsActions";
-import { MainLayout } from "../../layouts/mainLayout";
+import React from 'react';
+import { Carousel, SideMenu, ProductCollection, BusinessPartners } from '../../components';
+import { Row, Col, Typography, Spin } from 'antd';
+import sideImage from '../../assets/images/sider_2019_12-09.png';
+import sideImage2 from '../../assets/images/sider_2019_02-04.png';
+import sideImage3 from '../../assets/images/sider_2019_02-04-2.png';
+import { withTranslation, WithTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
+import { RootState } from '../../redux/store';
+import { giveMeDataActionCreator } from '../../redux/recommendProducts/recommendProductsActions';
+import { MainLayout } from '../../layouts/mainLayout';
 
 const mapStateToProps = (state: RootState) => {
   return {
@@ -27,9 +18,9 @@ const mapStateToProps = (state: RootState) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    giveMeData: () => {
+    giveMeData() {
       dispatch(giveMeDataActionCreator());
     },
   };
@@ -45,7 +36,6 @@ class HomePageComponent extends React.Component<PropsType> {
   }
 
   render() {
-    // console.log(this.props.t)
     const { t, productList, loading, error } = this.props;
     if (loading) {
       return (
@@ -54,9 +44,9 @@ class HomePageComponent extends React.Component<PropsType> {
           style={{
             marginTop: 200,
             marginBottom: 200,
-            marginLeft: "auto",
-            marginRight: "auto",
-            width: "100%",
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            width: '100%',
           }}
         />
       );
@@ -77,7 +67,7 @@ class HomePageComponent extends React.Component<PropsType> {
         <ProductCollection
           title={
             <Typography.Title level={3} type="warning">
-              {t("home_page.hot_recommended")}
+              {t('home_page.hot_recommended')}
             </Typography.Title>
           }
           sideImage={sideImage}
@@ -86,7 +76,7 @@ class HomePageComponent extends React.Component<PropsType> {
         <ProductCollection
           title={
             <Typography.Title level={3} type="danger">
-              {t("home_page.new_arrival")}
+              {t('home_page.new_arrival')}
             </Typography.Title>
           }
           sideImage={sideImage2}
@@ -95,7 +85,7 @@ class HomePageComponent extends React.Component<PropsType> {
         <ProductCollection
           title={
             <Typography.Title level={3} type="success">
-              {t("home_page.domestic_travel")}
+              {t('home_page.domestic_travel')}
             </Typography.Title>
           }
           sideImage={sideImage3}

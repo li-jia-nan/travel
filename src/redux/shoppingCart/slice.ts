@@ -108,7 +108,7 @@ export const shoppingCartSlice = createSlice({
     [checkout.pending.type]: state => {
       state.loading = true;
     },
-    [checkout.fulfilled.type]: (state, action) => {
+    [checkout.fulfilled.type]: state => {
       state.items = [];
       state.loading = false;
       state.error = null;

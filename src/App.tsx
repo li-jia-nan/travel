@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from './App.module.css';
+import styles from './App.module.scss';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {
   HomePage,
@@ -15,7 +15,13 @@ import { useSelector } from './redux/hooks';
 import { useDispatch } from 'react-redux';
 import { getShoppingCart } from './redux/shoppingCart/slice';
 
-const PrivateRoute = ({ component, isAuthenticated, ...rest }) => {
+interface Props {
+  component: React.FC<any>;
+  isAuthenticated: boolean;
+  path: string;
+}
+
+const PrivateRoute: React.FC<Props> = ({ component, isAuthenticated, ...rest }) => {
   const routeComponent = props => {
     return isAuthenticated ? (
       React.createElement(component, props)
@@ -26,15 +32,14 @@ const PrivateRoute = ({ component, isAuthenticated, ...rest }) => {
   return <Route render={routeComponent} {...rest} />;
 };
 
-function App() {
+const App: React.FC = () => {
   const jwt = useSelector(s => s.user.token);
   const dispatch = useDispatch();
-
   useEffect(() => {
     if (jwt) {
       dispatch(getShoppingCart(jwt));
     }
-  }, [jwt]);
+  }, [dispatch, jwt]);
 
   return (
     <div className={styles.App}>
@@ -46,13 +51,13 @@ function App() {
           <Route path="/detail/:touristRouteId" component={DetailPage} />
           <Route path="/search/:keywords?" component={SearchPage} />
           <PrivateRoute
-            isAuthenticated={jwt !== null}
             path="/shoppingCart"
+            isAuthenticated={Boolean(jwt)}
             component={ShoppingCartPage}
           />
           <PrivateRoute
-            isAuthenticated={jwt !== null}
             path="/placeOrder"
+            isAuthenticated={Boolean(jwt)}
             component={PlaceOrderPage}
           />
           <Route render={() => <h1>404 not found 页面去火星了 ！</h1>} />
@@ -60,6 +65,6 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;

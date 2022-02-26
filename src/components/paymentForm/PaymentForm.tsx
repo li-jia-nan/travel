@@ -2,16 +2,10 @@ import React from 'react';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
 import { Input } from 'antd';
-import styles from './PaymentForm.module.css';
+import styles from './PaymentForm.module.scss';
 
 export class PaymentForm extends React.Component {
-  state = {
-    cvc: '',
-    expiry: '',
-    focus: '',
-    name: '',
-    number: '',
-  };
+  state = { cvc: '', expiry: '', focus: '', name: '', number: '' };
 
   handleInputFocus = e => {
     this.setState({ focus: e.target.name });
@@ -19,7 +13,6 @@ export class PaymentForm extends React.Component {
 
   handleInputChange = e => {
     const { name, value } = e.target;
-
     this.setState({ [name]: value });
   };
 

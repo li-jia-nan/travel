@@ -1,5 +1,5 @@
-import styles from './ProductIntro.module.css';
 import React from 'react';
+import styles from './ProductIntro.module.scss';
 import { Typography, Carousel, Image, Rate, Table } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 

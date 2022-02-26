@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 import logo from '../../assets/logo.svg';
 import { Layout, Typography, Input, Menu, Button, Dropdown } from 'antd';
 import { GlobalOutlined } from '@ant-design/icons';
@@ -40,7 +40,6 @@ export const Header: React.FC = () => {
   }, [jwt]);
 
   const menuClickHandler = e => {
-    console.log(e);
     if (e.key === 'new') {
       // 处理新语言添加action
       dispatch(addLanguageActionCreator('新语言', 'new_lang'));

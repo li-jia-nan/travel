@@ -1,1 +1,1 @@
-export * from './Searchpage'
+export * from './Searchpage';

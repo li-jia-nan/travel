@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ProductCollection.module.css';
+import styles from './ProductCollection.module.scss';
 import { Row, Col, Divider } from 'antd';
 import { ProductImage } from './ProductImage';
 

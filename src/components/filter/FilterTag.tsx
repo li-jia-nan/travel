@@ -7,9 +7,9 @@ interface PropsType {
 }
 
 export const FilterTag: React.FC<PropsType> = props => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState<boolean>(false);
 
-  const handleChange = checked => {
+  const handleChange = (checked: boolean) => {
     setChecked(checked);
   };
 

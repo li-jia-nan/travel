@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 import logo from '../../assets/logo.svg';
 import { Layout, Typography, Input, Menu, Button, Dropdown } from 'antd';
 import { GlobalOutlined } from '@ant-design/icons';
@@ -40,7 +40,6 @@ type PropsType = RouteComponentProps & // react-router 路由props类型
 
 class HeaderComponnet extends React.Component<PropsType> {
   menuClickHandler = e => {
-    console.log(e);
     if (e.key === 'new') {
       // 处理新语言添加action
       this.props.addLanguage('新语言', 'new_lang');
